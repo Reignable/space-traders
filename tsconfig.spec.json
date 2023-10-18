@@ -3,12 +3,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": [
-      "jasmine"
-    ]
+    "types": ["jest", "@testing-library/angular", "@testing-library/user-event"]
   },
-  "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
-  ]
+  "include": ["src/setup-jest.ts", "src/**/*.spec.ts", "src/**/*.d.ts"]
 }
