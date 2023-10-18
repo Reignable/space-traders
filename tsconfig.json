@@ -21,8 +21,8 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "@shared/*": ["src/shared/*"],
-      "@auth/*": ["src/auth/*"]
+      "@shared/*": ["src/app/shared/*"],
+      "@auth/*": ["src/app/auth/*"]
     },
     "esModuleInterop": true
   },
