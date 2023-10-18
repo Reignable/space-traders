@@ -1,0 +1,7 @@
+<form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
+  <label>
+    Callsign
+    <input type="text" formControlName="symbol" />
+  </label>
+  <button type="submit">Register</button>
+</form>
