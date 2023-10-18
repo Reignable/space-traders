@@ -19,4 +19,12 @@ export const handlers = [
       );
     }
   ),
+  rest.get('/my/agent', async (req, res, ctx) =>
+    res(
+      ctx.json({
+        accountId: faker.string.uuid(),
+        symbol: faker.internet.userName().toUpperCase(),
+      })
+    )
+  ),
 ];

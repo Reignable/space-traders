@@ -14,7 +14,7 @@ export class HomeComponent {
   constructor() {
     effect(() => {
       if (!this.authService.token()) {
-        this.router.navigate(['auth', 'register']);
+        this.router.navigate(['auth', 'login']);
       }
     });
   }

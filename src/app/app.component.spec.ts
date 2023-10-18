@@ -19,7 +19,9 @@ describe('AppComponent', () => {
     await render(AppComponent, {
       routes: appRoutes,
       imports: [HttpClientModule],
+      initialRoute: 'auth/login',
     });
+    userEvent.click(screen.getByRole('link', { name: /register/i }));
     userEvent.type(await screen.findByLabelText(/callsign/i), symbol);
     userEvent.click(screen.getByRole('button', { name: /register/i }));
     expect(await screen.findByText(token)).toBeInTheDocument();
@@ -28,13 +30,22 @@ describe('AppComponent', () => {
   });
 
   it('can login', async () => {
-    const callsign = faker.internet.userName();
+    const symbol = faker.internet.userName();
     const token = faker.string.uuid();
-    await render(AppComponent);
-    userEvent.click(screen.getByRole('button', { name: /login/i }));
+    server.use(
+      rest.get('/my/agent', (req, res, ctx) => {
+        console.log(req.headers.get('Authorization'));
+        return res(ctx.json({ symbol }));
+      })
+    );
+    await render(AppComponent, {
+      routes: appRoutes,
+      imports: [HttpClientModule],
+      initialRoute: 'auth/login',
+    });
     userEvent.type(screen.getByLabelText(/token/i), token);
     userEvent.click(screen.getByRole('button', { name: /login/i }));
     expect(await screen.findByText(token)).toBeInTheDocument();
-    expect(screen.getByText(callsign)).toBeInTheDocument();
+    expect(screen.getByText(symbol)).toBeInTheDocument();
   });
 });
