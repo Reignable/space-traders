@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { isAuthenticatedGuard } from '@shared/guards/is-authenticated.guard';
 
 export const appRoutes: Routes = [
   {
@@ -7,6 +8,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'home',
+    canActivate: [isAuthenticatedGuard()],
     loadComponent: () =>
       import('./home/home.component').then(m => m.HomeComponent),
   },
