@@ -1,4 +1,4 @@
-import { Agent } from '@shared';
+import { Agent } from '@shared/types';
 
 export type RegisterResponse = {
   agent: Agent;

@@ -25,7 +25,12 @@ export class AppComponent {
     this.showingRegisterForm.set(true);
   }
 
+  hideRegisterForm() {
+    this.showingRegisterForm.set(false);
+  }
+
   submitRegisterForm() {
     this.authService.register(this.registerForm.getRawValue()).subscribe();
+    this.hideRegisterForm();
   }
 }

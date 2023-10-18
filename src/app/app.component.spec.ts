@@ -24,6 +24,7 @@ describe('AppComponent', () => {
     userEvent.click(screen.getByRole('button', { name: /register/i }));
     expect(await screen.findByText(token)).toBeInTheDocument();
     expect(screen.getByText(callsign)).toBeInTheDocument();
+    expect(screen.queryByLabelText(/callsign/i)).not.toBeInTheDocument();
   });
 
   it('can login', async () => {
