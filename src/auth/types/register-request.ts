@@ -1,7 +1,6 @@
-import { Faction } from '@shared';
+import { Faction } from '@shared/types';
 
 export type RegisterRequest = {
-  email: string;
   faction: Faction;
   symbol: string;
 };

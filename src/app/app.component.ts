@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { NonNullableFormBuilder } from '@angular/forms';
+import { Faction } from '@shared/types';
+import { AuthService } from '@auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'space-traders';
+  authService = inject(AuthService);
+  formBuilder = inject(NonNullableFormBuilder);
+  currentAgent = this.authService.currentAgent$;
+
+  registerForm = this.formBuilder.group({
+    symbol: '',
+    faction: this.formBuilder.control<Faction>('COSMIC'),
+  });
+
+  showingRegisterForm = signal(false);
+
+  showRegisterForm() {
+    this.showingRegisterForm.set(true);
+  }
+
+  submitRegisterForm() {
+    this.authService.register(this.registerForm.getRawValue()).subscribe();
+  }
 }

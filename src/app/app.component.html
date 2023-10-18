@@ -1,1 +1,17 @@
-<p>App works!</p>
+<button *ngIf="!showingRegisterForm()" (click)="showRegisterForm()">
+  Register
+</button>
+<form
+  *ngIf="showingRegisterForm()"
+  [formGroup]="registerForm"
+  (ngSubmit)="submitRegisterForm()">
+  <label>
+    Callsign
+    <input type="text" formControlName="symbol" />
+  </label>
+  <button type="submit">Register</button>
+</form>
+<ng-container *ngIf="currentAgent() as currentAgent">
+  <p>{{ currentAgent.token }}</p>
+  <p>{{ currentAgent.agent.symbol }}</p>
+</ng-container>
