@@ -1,8 +1,12 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
-import { HttpClientModule } from '@angular/common/http';
+import { apiUrlInterceptor } from './shared';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(appRoutes), importProvidersFrom(HttpClientModule)],
+  providers: [
+    provideRouter(appRoutes),
+    provideHttpClient(withInterceptors([apiUrlInterceptor])),
+  ],
 };

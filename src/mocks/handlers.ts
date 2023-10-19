@@ -9,12 +9,14 @@ export const handlers = [
       const { symbol, faction } = await req.json<RegisterRequest>();
       return res(
         ctx.json({
-          agent: {
-            accountId: faker.string.uuid(),
-            symbol: symbol.toUpperCase(),
-            startingFaction: faction,
+          data: {
+            agent: {
+              accountId: faker.string.uuid(),
+              symbol: symbol.toUpperCase(),
+              startingFaction: faction,
+            },
+            token: faker.string.uuid(),
           },
-          token: faker.string.uuid(),
         })
       );
     }
@@ -22,8 +24,10 @@ export const handlers = [
   rest.get('/my/agent', async (req, res, ctx) =>
     res(
       ctx.json({
-        accountId: faker.string.uuid(),
-        symbol: faker.internet.userName().toUpperCase(),
+        data: {
+          accountId: faker.string.uuid(),
+          symbol: faker.internet.userName().toUpperCase(),
+        },
       })
     )
   ),

@@ -1,6 +1,6 @@
-import { Agent } from '@shared/types';
+import { Agent, DataResponse } from '@shared/types';
 
-export type RegisterResponse = {
+export type RegisterResponse = DataResponse<{
   agent: Agent;
   token: string;
-};
+}>;
