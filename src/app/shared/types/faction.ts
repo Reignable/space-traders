@@ -1,4 +1,4 @@
-export type Faction =
+export type FactionSymbol =
   | 'COSMIC'
   | 'VOID'
   | 'GALACTIC'

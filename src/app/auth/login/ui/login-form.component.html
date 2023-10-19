@@ -1,4 +1,5 @@
 <form [formGroup]="loginForm" (ngSubmit)="login.emit(loginForm.getRawValue())">
+  <!-- TODO: #3 -->
   <label>
     Token
     <input type="text" formControlName="token" />
