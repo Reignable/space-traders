@@ -1,7 +1,8 @@
 <h1>Home</h1>
 <button (click)="logout()">Logout</button>
-<h2>Callsign</h2>
-<p>{{ authService.agent()?.symbol }}</p>
 <h2>Your Token</h2>
 <p>{{ authService.token() }}</p>
-<!-- TODO: #5 -->
+<h2>Callsign</h2>
+<p>{{ authService.agent()?.symbol }}</p>
+<h2>Headquarters</h2>
+<pre>{{ headquarters$ | async | json }}</pre>
