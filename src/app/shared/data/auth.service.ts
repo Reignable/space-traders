@@ -28,15 +28,11 @@ export class AuthService {
 
   login(request: LoginRequest) {
     const { token } = request;
-    return this.httpClient
-      .get<LoginResponse>('/my/agent', {
-        headers: { Authorization: `Bearer ${token}` },
+    return this.httpClient.get<LoginResponse>('/my/agent').pipe(
+      tap(response => {
+        this.auth.set({ agent: response.data, token });
       })
-      .pipe(
-        tap(response => {
-          this.auth.set({ agent: response.data, token });
-        })
-      );
+    );
   }
 
   logout() {

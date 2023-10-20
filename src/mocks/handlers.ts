@@ -14,6 +14,7 @@ export const handlers = [
               accountId: faker.string.uuid(),
               symbol: symbol.toUpperCase(),
               startingFaction: faction,
+              headquarters: '',
             },
             token: faker.string.uuid(),
           },
