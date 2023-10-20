@@ -14,7 +14,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'contracts',
-    // canActivate: [isAuthenticatedGuard()],
+    canActivate: [isAuthenticatedGuard()],
     loadChildren: () =>
       import('./contracts/contracts.routes').then(m => m.default),
   },

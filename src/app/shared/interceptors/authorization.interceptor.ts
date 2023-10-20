@@ -5,7 +5,7 @@ import { inject } from '@angular/core';
 export const authorizationInterceptor: HttpInterceptorFn = (req, next) => {
   const authToken = inject(AuthService).token();
 
-  if (req.url.includes('/register')) {
+  if (req.url.includes('/register') || req.url.includes('/my/agent')) {
     return next(req);
   }
 

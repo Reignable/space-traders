@@ -7,7 +7,7 @@ import { Agent } from '..';
 import { LoginResponse } from '@auth/login/model/login-response';
 
 type AuthData = {
-  agent: Agent;
+  agent?: Agent;
   token: string;
 } | null;
 
@@ -28,11 +28,15 @@ export class AuthService {
 
   login(request: LoginRequest) {
     const { token } = request;
-    return this.httpClient.get<LoginResponse>('/my/agent').pipe(
-      tap(response => {
-        this.auth.set({ agent: response.data, token });
+    return this.httpClient
+      .get<LoginResponse>('/my/agent', {
+        headers: { Authorization: `Bearer ${token}` },
       })
-    );
+      .pipe(
+        tap(response => {
+          this.auth.set({ agent: response.data, token });
+        })
+      );
   }
 
   logout() {

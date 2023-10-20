@@ -1,1 +1,5 @@
-<p>Contract list works</p>
+<ul>
+  <li *ngFor="let contract of contracts$ | async">
+    <pre>{{ contract | json }}</pre>
+  </li>
+</ul>

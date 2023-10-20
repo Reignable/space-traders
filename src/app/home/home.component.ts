@@ -4,7 +4,7 @@ import { toObservable } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { AuthService, WaypointService } from '@shared/data';
 import { filterNullish } from '@shared/operators';
-import { switchMap } from 'rxjs';
+import { switchMap, tap } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -18,6 +18,7 @@ export class HomeComponent {
   private router = inject(Router);
 
   headquarters$ = toObservable(this.authService.agent).pipe(
+    tap(console.log),
     filterNullish(),
     switchMap(agent => this.waypointService.getWaypoint(agent.headquarters))
   );
