@@ -1,4 +1,4 @@
-import { FactionSymbol } from '@shared/types';
+import { FactionSymbol } from '@shared/model';
 
 export type RegisterRequest = {
   faction: FactionSymbol;

@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { tap } from 'rxjs';
-import { RegisterRequest, RegisterResponse } from '../../auth/register/types';
-import { LoginRequest } from '@auth/login/types/login-request';
+import { RegisterRequest, RegisterResponse } from '../../auth/register/model';
+import { LoginRequest } from '@auth/login/model/login-request';
 import { Agent } from '..';
-import { LoginResponse } from '@auth/login/types/login-response';
+import { LoginResponse } from '@auth/login/model/login-response';
 
 type AuthData = {
-  agent: Agent;
+  agent?: Agent;
   token: string;
 } | null;
 

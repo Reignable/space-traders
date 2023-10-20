@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { RegisterRequest } from '@auth/register/types';
+import { RegisterRequest } from '@auth/register/model';
 import { AuthService } from '@shared/data';
 import { EMPTY, Subject, catchError, switchMap } from 'rxjs';
 

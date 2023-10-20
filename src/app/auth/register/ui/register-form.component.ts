@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { FactionSymbol } from '@shared/types';
-import { RegisterRequest } from '../types';
+import { FactionSymbol } from '@shared/model';
+import { RegisterRequest } from '../model';
 
 @Component({
   selector: 'app-register-form',
