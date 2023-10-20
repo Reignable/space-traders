@@ -13,6 +13,13 @@ export const appRoutes: Routes = [
       import('./home/home.component').then(m => m.HomeComponent),
   },
   {
+    path: 'contracts',
+    // canActivate: [isAuthenticatedGuard()],
+    loadChildren: () =>
+      import('./contracts/contracts.routes').then(m => m.default),
+  },
+
+  {
     path: '',
     redirectTo: 'auth',
     pathMatch: 'full',
