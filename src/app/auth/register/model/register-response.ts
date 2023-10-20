@@ -1,4 +1,4 @@
-import { Agent, DataResponse } from '@shared/types';
+import { Agent, DataResponse } from '@shared/model';
 
 export type RegisterResponse = DataResponse<{
   agent: Agent;

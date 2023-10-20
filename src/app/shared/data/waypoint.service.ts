@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Waypoint } from '@shared/types/waypoint';
+import { Waypoint } from '@shared/model/waypoint';
 import { getSystemSymbol } from '@shared/utilities';
 import { map } from 'rxjs';
 import { DataResponse } from '..';

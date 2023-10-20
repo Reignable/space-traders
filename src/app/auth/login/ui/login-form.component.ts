@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { LoginRequest } from '../types/login-request';
+import { LoginRequest } from '../model/login-request';
 
 @Component({
   standalone: true,

@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { PathParams, rest } from 'msw';
-import { RegisterRequest, RegisterResponse } from '@auth/register/types';
+import { RegisterRequest, RegisterResponse } from '@auth/register/model';
 
 export const handlers = [
   rest.post<RegisterRequest, PathParams<never>, RegisterResponse>(

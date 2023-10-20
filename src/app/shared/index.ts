@@ -1,4 +1,4 @@
 export * from './data';
 export * from './interceptors';
-export * from './types';
+export * from './model';
 export * from './utilities';
