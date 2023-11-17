@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "space-traders:build:production"
+              "buildTarget": "space-traders:build:production"
             },
             "development": {
-              "browserTarget": "space-traders:build:development"
+              "buildTarget": "space-traders:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "space-traders:build"
+            "buildTarget": "space-traders:build"
           }
         },
         "test": {
