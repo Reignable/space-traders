@@ -1,5 +1,7 @@
 <ul>
-  <li *ngFor="let contract of contracts$ | async">
-    <pre>{{ contract | json }}</pre>
-  </li>
+  @for (contract of contracts$ | async; track contract.id) {
+    <li>
+      <pre>{{ contract | json }}</pre>
+    </li>
+  }
 </ul>
